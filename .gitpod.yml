@@ -2,9 +2,17 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
-  - init: |
+  - name: Install dependencies
+    init: |
       npm install
+      npx playwright install
+  - name: Start VNC Server & Run X
+    command: |
+      export DISPLAY=:99
+      Xvfb :99 -screen 0 1280x720x16 &
+      x11vnc -display :99 -nopw -forever &
 
 ports:
   - port: 5900
     onOpen: open-preview
+    visibility: public

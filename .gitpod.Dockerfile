@@ -1,7 +1,9 @@
-FROM mcr.microsoft.com/playwright:v1.44.1-focal
+# Use the correct Playwright image version
+FROM mcr.microsoft.com/playwright:v1.52.0-focal
 
 USER root
 
+# Install browser dependencies + X11 + VNC server
 RUN apt-get update && apt-get install -y \
     libatk1.0-0 \
     libatk-bridge2.0-0 \

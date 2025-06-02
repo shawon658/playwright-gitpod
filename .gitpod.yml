@@ -1,0 +1,5 @@
+image: mcr.microsoft.com/playwright:v1.44.1-focal
+
+tasks:
+  - init: |
+      npm install

@@ -1,16 +1,15 @@
-image:
-  file: .gitpod.Dockerfile
-
 tasks:
   - name: Install dependencies
     init: |
       npm install
       npx playwright install
-  - name: Start VNC Server & Run X
+
+  - name: Start Xvfb and VNC, then run tests
     command: |
       export DISPLAY=:99
       Xvfb :99 -screen 0 1280x720x16 &
-      x11vnc -display :99 -nopw -forever &
+      x11vnc -display :99 -nopw -forever -shared &
+      npx playwright test
 
 ports:
   - port: 5900

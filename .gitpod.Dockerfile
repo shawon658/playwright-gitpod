@@ -1,5 +1,6 @@
 # Use the correct Playwright image version
-FROM mcr.microsoft.com/playwright:latest-focal
+FROM mcr.microsoft.com/playwright:v1.44.1-focal
+
 
 
 USER root

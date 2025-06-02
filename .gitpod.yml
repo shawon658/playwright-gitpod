@@ -1,5 +1,10 @@
-image: mcr.microsoft.com/playwright:v1.44.1-focal
+image:
+  file: .gitpod.Dockerfile
 
 tasks:
   - init: |
       npm install
+
+ports:
+  - port: 5900
+    onOpen: open-preview
